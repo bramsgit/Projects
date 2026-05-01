@@ -1,0 +1,247 @@
+/* --- BASE STYLES --- */
+html {
+    scroll-behavior: smooth; /* Membuat efek scroll jadi halus saat link diklik */
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+
+    font-family: "SN Pro", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background: linear-gradient(180deg, #ff7e5f 0%, #feb47b 50%, #5fb3b3 100%);
+    background-attachment: fixed;
+}
+
+/* --- MAIN CONTAINER GRID --- */
+.container {
+    display:grid;
+    grid-template-areas: 
+        "header"
+        "body"
+        "footer";
+    grid-template-rows: auto 1fr auto;
+    min-height: 90vh;
+}
+.nav-container { 
+    display: flex;         /* Ini yang membuat menu jadi sejajar horizontal */
+    padding: 0;
+    margin: 0;
+}
+/* --- SECTION 1: HEADER --- */
+.main-header {
+    grid-area: header;
+    font-family: "SN Pro", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    background-color: #5fb3b3;
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.2);
+}
+
+.brand {
+    color: rgb(9, 9, 9);
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.nav-links a {
+    color: #030303;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bolder;
+    padding: 5px 20px; 
+    display: inline-block;  
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    text-decoration: none;
+}
+
+/* --- SECTION 2: BODY --- */
+.main-content {
+    grid-area: body;
+    background-color: #ffffff; /* Putih bersih untuk konten */
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+/* Hero Section Grid */
+.hero-section {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 40px;
+    align-items: center;
+    margin-bottom: 60px;
+    transition: opacity 0.3s ease;
+}
+
+.about-section {
+    transition: opacity 0.3s ease;
+    padding: 20px
+}
+
+.portfolio-section {
+    transition: opacity 0.3s ease;
+    padding: 20px
+}
+
+.hero-text h1 {
+    font-size: 2.2rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.btn-primary {
+    display: inline-block;
+    background-color: #ff7e5f;
+    color: white;
+    padding: 10px 25px;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 20px;
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: 10px;
+    background: #eee;
+}
+hr {
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    margin: 10px 20px;
+}
+/* About Me (Table-like Grid) */
+.section-title {
+    text-align: center;
+    color: #5fb3b3;
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #000000;
+    margin-bottom: 30px;
+}
+
+.table-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.table-cell {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    padding: 12px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.table-cell b {
+    color: #ff7e5f;
+}
+
+/* Portfolio Grid */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.card {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 100%;
+}
+
+.card-body {
+    padding: 15px;
+}
+
+/* --- SECTION 3: FOOTER --- */
+.main-footer {
+    grid-area: footer;
+    /* Orange - matches background coral (#ff7e5f) */
+    background-color: #d35400;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+/* --- RESPONSIVE (MEDIA QUERIES) --- */
+
+/* Tablet & Pad */
+@media (max-width: 992px) {
+    .table-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile Phone */
+@media (max-width: 600px) {
+    .main-content {
+        padding: 20px;
+        margin: 10px;
+    }
+
+    .hero-section {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .main-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav-links {
+        margin-top: 10px;
+    }
+
+    .nav-links a {
+        margin: 0 10px;
+    }
+
+    .table-grid, .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+
+}
